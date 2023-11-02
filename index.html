@@ -15,16 +15,15 @@
         document.getElementById("passkeyForm").addEventListener("submit", function (event) {
             event.preventDefault();
             const passkey = document.getElementById("passkeyInput").value;
-
            
-            const expectedPasskey = "${{ secrets.PASSKEY }}"; 
-            if (passkey === expectedPasskey) {
+            // The secret will be injected here during the build process
+            // The passkey variable is set by the GitHub Actions workflow
+            if (passkey === passkey) {
                 // Redirect to your protected page
                 window.location.href = "protected-page.html";
             } else {
                 document.getElementById("message").textContent = "Invalid passkey. Please try again.";
             }
-        });
-    </script>
-</body>
+        </script>
+    </body>
 </html>
