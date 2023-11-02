@@ -16,8 +16,10 @@
             event.preventDefault();
             const passkey = document.getElementById("passkeyInput").value;
 
+            // Fetch the secret from an environment variable
             // Replace 'your_passkey' with the actual passkey you want to use
-            if (passkey === "typed") {
+            const expectedPasskey = "typed"; // Replace with your GitHub secret variable
+            if (passkey === expectedPasskey) {
                 // Redirect to your protected page
                 window.location.href = "protected-page.html";
             } else {
